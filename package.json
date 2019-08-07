@@ -1,0 +1,34 @@
+{
+  "name": "@alobato/modal",
+  "version": "1.0.0",
+  "description": "Modal react component",
+  "main": "index.js",
+  "repository": "github:alobato/modal",
+  "author": "alobato",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "modal"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "dependencies": {
+    "@alobato/use-key-press": "^1.0.0",
+    "@alobato/use-lock-body-scroll": "^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/alobato/modal/issues"
+  },
+  "homepage": "https://github.com/alobato/modal#readme"
+}
