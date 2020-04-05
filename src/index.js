@@ -4,13 +4,13 @@ import { createPortal } from 'react-dom'
 import useKeyPress from '@alobato/use-key-press'
 import useLockBodyScroll from '@alobato/use-lock-body-scroll'
 
-const Portal = ({children}) => createPortal(children, document.getElementById('modal-root'))
+const Portal = ({ children }) => createPortal(children, document.getElementById('modal-root'))
 
-const Backdrop = forwardRef(({onClick, zIndex = 1000, style}, ref) => (
-  <div ref={ref} style={{position: 'fixed', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: 'black', opacity: 0, zIndex: zIndex, outline: 'none', tabIndex: -1, ...style}} onClick={onClick} />
+const Backdrop = forwardRef(({ onClick, zIndex = 1000, style }, ref) => (
+  <div ref={ref} style={{ position: 'fixed', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: 'black', opacity: 0, zIndex: zIndex, outline: 'none', tabIndex: -1, ...style }} onClick={onClick} />
 ))
 
-export default ({render, className, onCloseCompleted = () => {}, zIndex = 1001, hasBackdrop = true, clickOutsideDisabled = false, backdropOpacity = 0.6, exitAnimation, enterAnimation, backdropStyle}) => {
+export default ({ render, className, onCloseCompleted = () => {}, zIndex = 1001, hasBackdrop = true, clickOutsideDisabled = false, backdropOpacity = 0.6, exitAnimation, enterAnimation, backdropStyle, ignoreEsc = false }) => {
   if (hasBackdrop) useLockBodyScroll()
 
   const modal = useRef()
@@ -36,11 +36,11 @@ export default ({render, className, onCloseCompleted = () => {}, zIndex = 1001, 
   }, [backdropOpacity, enterAnimation])
   
   const escPress = useKeyPress('Escape') 
-  if (escPress) handleExit()
+  if (!ignoreEsc && escPress) handleExit()
 
   return (
     <Portal>
-      <div className={className} ref={modal} tabIndex='-1' style={{opacity: initialOpacity, position: 'fixed', top: 0, right: 0, bottom: 0, left: 0, zIndex: zIndex, overflow: 'hidden', pointerEvents: 'none', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div className={className} ref={modal} tabIndex='-1' style={{ opacity: initialOpacity, position: 'fixed', top: 0, right: 0, bottom: 0, left: 0, zIndex: zIndex, overflow: 'hidden', pointerEvents: 'none', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div>
           {render({onRequestClose: handleExit})}
         </div>
