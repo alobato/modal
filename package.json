@@ -1,6 +1,6 @@
 {
   "name": "@alobato/modal",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "Modal react component",
   "main": "index.js",
   "scripts": {
@@ -21,15 +21,15 @@
     "index.js"
   ],
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "@alobato/use-key-press": "^1.0.0",
